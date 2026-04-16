@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}} {{t "ShippingAuthentication.Subject" "{listingTitle} is en route to Authentication 🚀" listingTitle=transaction.listing.title}}

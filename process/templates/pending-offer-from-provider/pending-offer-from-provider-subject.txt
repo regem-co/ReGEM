@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}} {{t "PendingOfferFromProvider.Subject" "You have a new offer for {listingTitle}" listingTitle=transaction.listing.title providerName=transaction.provider.display-name}}

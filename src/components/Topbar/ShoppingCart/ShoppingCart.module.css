@@ -1,0 +1,179 @@
+@import '../../../styles/customMediaQueries.css';
+
+.shoppingCartWrapper {
+  position: relative;
+  @apply --TopbarDesktop_linkHover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (--viewportMedium) {
+    flex-direction: column;
+    height: 100%;
+    width: 3pc;
+    padding-bottom: 0;
+  }
+}
+
+.cartIcon {
+  align-self: center;
+}
+
+.deleteIcon {
+  cursor: pointer;
+  margin-right: 1pc;
+  margin-bottom: 3px;
+
+  &:hover {
+    transform: scale(1.02);
+    color: red;
+  }
+}
+
+.cartItemsWrapper {
+  margin-top: 2pc;
+  padding: var(--modalPadding);
+
+  @media (--viewportMedium) {
+    padding: 24px 60px 40px 60px;
+  }
+}
+
+.cartNoItemsWrapper {
+  padding: var(--modalPadding);
+
+  @media (--viewportMedium) {
+    padding: 24px 60px 40px 60px;
+  }
+}
+
+.cartNoItemsWrapper h2 {
+  font-size: 20px;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1pc;
+}
+
+.itemsCount {
+  width: 18px;
+  height: 18px;
+  background-color: var(--matterColorDark);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+  color: var(--matterColorLight);
+  font-weight: var(--fontWeightMedium);
+
+  position: absolute;
+  top: 10px;
+  right: 0px;
+
+
+  @media (--viewportMedium) {
+    top: 18px;
+    right: 4px;
+  }
+}
+
+.cartItemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.cartItemRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bagIcon {
+  width: 18px;
+  object-fit: contain;
+}
+
+.modalTitle {
+  margin: 0;
+  padding: 18px 24px;
+  text-align: center;
+  color: var(--matterColorLight);
+  background-color: var(--marketplaceColor);
+}
+
+.modalContainer {
+  padding: 0 !important;
+}
+
+.modalContainer button[class^="Modal_close"] {
+  padding: 22px 30px;
+
+  @media (--viewportMedium) {
+    padding: 26px 30px;
+  }
+}
+
+.modalContainer span[class^="Modal_closeText"] {
+  display: none;
+}
+
+.modalContainer svg[class^="Modal_closeIcon"] {
+  fill: var(--matterColorLight);
+  margin: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.checkoutButton {
+  margin-bottom: 20px;
+}
+
+.affirmButton {
+  margin-bottom: 20px;
+  background-color: var(--matterColor);
+}
+
+.nonLoginItemsContainer {
+  background-color: var(--matterColorBright);
+  border: 2px solid var(--matterColorNegative);
+  padding: 10px 15px;
+}
+
+.noticeAboutNotSameVendor {
+  line-height: 1.4;
+  font-size: 16px;
+  text-align: center;
+  color: var(--failColor);
+}
+
+.noticeAboutNonLoginItems {
+  line-height: 1.4;
+  font-size: 16px;
+  text-align: center;
+}
+
+.mergeActions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.mergeItems {
+  width: 100px;
+  min-height: 38px;
+  height: 38px;
+}

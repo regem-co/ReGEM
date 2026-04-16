@@ -1,0 +1,717 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (--viewportLarge) {
+    flex-direction: row;
+    max-width: 1128px;
+    margin: 0 auto 57px auto;
+    padding: 0 36px;
+  }
+
+  @media (--viewportXLarge) {
+    max-width: 1056px;
+    padding: 0;
+  }
+}
+
+.txInfo {
+  margin-bottom: 210px;
+
+  @media (--viewportLarge) {
+    flex-basis: 538px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-right: 56px;
+    margin-bottom: 0;
+  }
+}
+
+.txInfoWeb {
+  margin-bottom: 210px;
+
+  @media (--viewportLarge) {
+    flex-basis: 538px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-right: 56px;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.txInfoMobile {
+  /* margin-bottom: 210px; */
+  margin-bottom: 30px;
+
+  /* @media (--viewportLarge) {
+    flex-basis: 538px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-right: 56px;
+    margin-bottom: 0;
+  } */
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.genericError {
+  color: var(--failColor);
+  margin: 24px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 32px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 32px 0 0 0;
+  }
+}
+
+/* DetailCardImage subcomponent */
+.detailCardImageWrapper {
+  /* Layout */
+  display: block;
+  width: 100%;
+  position: relative;
+  background-color: var(--matterColorNegative);
+  /* Loading BG color */
+
+  /* @media (--viewportLarge) {
+    display: block;
+  } */
+}
+
+.rootForImage {
+  /* Layout - image will take space defined by aspect ratio wrapper */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  @media (--viewportLarge) {
+    border-radius: 2px 2px 0 0;
+  }
+}
+
+.avatarWrapper {
+  /* Position (over the listing image)*/
+  margin-left: 24px;
+  margin-top: -30px;
+
+  /* Rendering context to the same lavel as listing image */
+  position: relative;
+  /* Flex would give too much width by default. */
+  width: 60px;
+
+  @media (--viewportMedium) {
+    margin-top: -32px;
+    padding: 2px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin-left: 48px;
+    width: unset;
+    padding: 2px 0;
+  }
+}
+
+/* Passed-in props for DetailCardImage subcomponent */
+.imageWrapperMobile {
+  position: relative;
+  background-color: var(--matterColorNegative);
+  /* Loading BG color */
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.avatarWrapperMobile {
+  composes: avatarWrapper;
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.avatarWrapperDesktop {
+  composes: avatarWrapper;
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+  }
+}
+
+.avatarWrapperProviderDesktop {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin-top: 120px;
+  }
+}
+
+.avatarDesktop {
+  @media (--viewportLarge) {
+    display: flex;
+  }
+}
+
+/* PanelHeadings subcomponent */
+.headingOrder {
+  margin: 30px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    max-width: 80%;
+    margin: 24px 24px 0 24px;
+    padding: 2px 0 6px 0;
+  }
+
+  @media (--viewportLarge) {
+    max-width: 100%;
+    /* margin: 112px 0 0 0; */
+    margin: 40px 0 0 0;
+  }
+}
+
+.headingSale {
+  margin: 18px 24px 0 24px;
+  padding: 5px 0 1px 0;
+
+  @media (--viewportMedium) {
+    max-width: 80%;
+    margin: 24px 24px 0 24px;
+    padding: 1px 0 7px 0;
+  }
+
+  @media (--viewportLarge) {
+    max-width: 100%;
+    margin: 40px 0 0 0;
+    padding: 2px 0 6px 0;
+  }
+}
+
+.mainTitle {
+  display: block;
+}
+
+.transactionInfoMessage {
+  margin: 18px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 23px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 23px 0 0 0;
+  }
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container for order details in mobile layout */
+.orderDetailsMobileSection {
+  /* margin-top: 48px; */
+  order: 2;
+
+  @media (--viewportMedium) {
+    margin-top: 40px;
+    padding: 4px 0 4px 0;
+  }
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.deliveryInfoSection {
+  order: 1;
+}
+
+/* "aside" section in desktop layout */
+.asideDesktop {
+  margin: 1px 0 0 0;
+
+  /**
+   * Aside is visible on mobile layout too, since it includes OrderPanel component.
+   * It might get rendered as a Modal in mobile layout.
+   */
+
+  @media (--viewportLarge) {
+    margin: 120px 0 0 0;
+    padding-top: 3px;
+  }
+}
+
+.stickySection {
+  @media (--viewportLarge) {
+    position: sticky;
+    top: -200px;
+    /* This is a hack to showcase how the component would look when the image isn't sticky */
+    width: 409px;
+    z-index: 1;
+  }
+}
+
+.detailCard {
+  @media (--viewportLarge) {
+    background-color: var(--matterColorLight);
+    border: 1px solid var(--matterColorNegative);
+    border-radius: 2px;
+  }
+}
+
+/* DetailCardHeadingsMaybe subcomponent */
+.detailCardHeadings {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin: 0 48px 33px 48px;
+  }
+}
+
+.detailCardTitle {
+  margin-bottom: 10px;
+
+  @media (--viewportLarge) {
+    margin-top: 14px;
+    margin-bottom: 0;
+  }
+}
+
+.detailCardSubtitle {
+  composes: h5 from global;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportLarge) {
+    margin-top: 9px;
+    margin-bottom: 0;
+  }
+}
+
+/* AddressLinkMaybe subcomponent */
+.address {
+  composes: h5 from global;
+  color: var(--matterColor);
+  margin: 0;
+}
+
+.viewOnGoogleMapsWrapper {
+  white-space: nowrap;
+}
+
+.pickupAddress {
+  composes: h5 from global;
+  margin: 0;
+  display: inline-block;
+
+  @media (--viewportMedium) {
+    padding: 3px 0 5px 0;
+  }
+}
+
+/* BreakdownMaybe subcomponent */
+.breakdownMaybe {
+  /* default "root" class for breakdown container */
+}
+
+.orderBreakdownTitle {
+  /* Font */
+  color: var(--matterColor);
+
+  margin: 0 24px 0 24px;
+
+  @media (--viewportLarge) {
+    margin: 32px 48px 0px 48px;
+    padding: 4px 0 4px 0;
+  }
+}
+
+.breakdown {
+  margin: 14px 24px 0 24px;
+  padding: 1px 0 5px 0;
+
+  @media (--viewportMedium) {
+    margin: 16px 24px 0 24px;
+    padding: 3px 0 5px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0px 48px 47px 48px;
+    padding: 6px 0 2px 0;
+  }
+}
+
+.breakdownContainer {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+  }
+}
+
+.sectionHeading {
+  color: var(--matterColor);
+  margin: 0;
+
+  @media (--viewportMedium) {
+    padding: 7px 0 1px 0;
+    margin: 0;
+  }
+}
+
+.shippingInfoContent {
+  padding: 0px 0 0px 13px;
+  margin-top: 12px;
+
+  @media (--viewportMedium) {
+    padding: 4px 0 4px 13px;
+    margin-top: 8px;
+  }
+}
+
+.pickupInfoContent {
+  composes: marketplaceSmallFontStyles from global;
+  padding: 5px 0 1px 0;
+  margin-top: 6px;
+
+  @media (--viewportMedium) {
+    padding: 1px 0 7px 0;
+    margin-top: 8px;
+  }
+}
+
+.feedContent {
+  padding: 0;
+  margin-top: 12px;
+
+  @media (--viewportMedium) {
+    margin-top: 8px;
+  }
+}
+
+.messageError {
+  color: var(--failColor);
+  margin: 13px 0 22px 0;
+
+  @media (--viewportMedium) {
+    margin: 13px 0 23px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 12px 0 23px 0;
+  }
+}
+
+/* Passed-in props for FeedSection subcomponent */
+.deliveryInfoContainer,
+.feedContainer {
+  margin: 42px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    padding: 7px 0 1px 0;
+    margin: 40px 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 40px 0 0 0;
+  }
+}
+
+/* Prop to be passed to SendMessageForm component */
+.sendMessageForm {
+  position: relative;
+  margin: 46px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 49px 24px 0 24px;
+    border-top: 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 48px 0 0 0;
+  }
+}
+
+.sendingMessageNotAllowed {
+  color: var(--matterColorAnti);
+
+  position: relative;
+  margin: 46px 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 49px 24px 0 24px;
+    border-top: 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 47px 0 0 0;
+  }
+}
+
+/* SaleActionButtonsMaybe subcomponent */
+.actionButtons {
+  /* Position action button row above the footer */
+  z-index: 9;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 18px 24px 18px 24px;
+
+  /* Contain repainting to this component only */
+  /* 3D painting container helps scrolling */
+  transform: translate3d(0, 0, 0);
+
+  box-shadow: var(--boxShadowTop);
+  background-color: white;
+
+  @media (--viewportLarge) {
+    z-index: unset;
+    position: static;
+    box-shadow: none;
+    width: auto;
+    margin: 0 48px 0 48px;
+    padding: 0;
+  }
+}
+
+.actionButtonWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  @media (--viewportLarge) {
+    flex-direction: column;
+  }
+
+  & button:first-child {
+    margin: 0 12px 0 0;
+
+    @media (--viewportLarge) {
+      margin: 8px 0 0 0;
+
+      /* Switch order in desktop layout with accept button being on the top */
+      order: 1;
+    }
+  }
+}
+
+.actionError {
+  composes: h5 from global;
+  color: var(--failColor);
+  margin: 0 0 11px 0;
+
+  @media (--viewportMedium) {
+    margin: 0 0 10px 0;
+    padding: 1px 0 7px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0;
+  }
+}
+
+.actionErrors {
+  width: 100%;
+  text-align: center;
+}
+
+/* Container for SaleActionButtonsMaybe subcomponent */
+.mobileActionButtons {
+  display: block;
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.desktopActionButtons {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin-bottom: 48px;
+  }
+}
+
+/* OrderPanel subcompnent */
+.orderPanel {
+  margin: 16px 48px 48px 48px;
+}
+
+.orderTitle {
+  /* Font */
+  color: var(--matterColor);
+
+  margin-top: 0;
+  margin-bottom: 1px;
+}
+
+.diminishedActionButtonRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 18px 24px 0 24px;
+
+  @media (--viewportLarge) {
+    align-items: center;
+    padding: 0;
+  }
+}
+
+/* e.g. dispute "link" */
+.diminishedActionButton {
+  composes: marketplaceTinyFontStyles from global;
+
+  width: max-content;
+  color: #808080;
+  padding: 1px 0 5px 0;
+  margin: 0;
+
+  @media (--viewportMedium) {
+    margin: 0;
+  }
+
+  @media (--viewportLarge) {
+    padding: 0px 75px;
+    margin-top: 16px;
+  }
+}
+
+.pendingOfferMessageWrapper {
+  margin: 20px 24px 20px 24px;
+  text-align: center;
+  color: var(--matterColor);
+  font-weight: var(--fontWeightBold);
+
+  @media (--viewportMedium) {
+    margin: 20px 24px 20px 24px;
+    padding: 3px 0 5px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 20px 48px 20px 48px;
+    padding: 6px 0 2px 0;
+  }
+}
+
+.pendingOfferActionButtonsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 0 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 0 24px 0 24px;
+    padding: 3px 0 5px 0;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0px 48px 0 48px;
+    padding: 6px 0 2px 0;
+  }
+}
+
+.pendingOfferActionButton {
+  margin-bottom: 20px;
+}
+
+.getShippingLabelButtonWrapper {
+  margin: 0 24px 0 24px;
+
+  @media (--viewportMedium) {
+    margin: 0 24px 0 24px;
+  }
+
+  @media (--viewportLarge) {
+    margin: 0px 48px 0 48px;
+  }
+}
+
+.getShippingLabelButton {
+  composes: button buttonFont buttonText buttonBorders buttonColors from global;
+}
+
+.authFileWrapper {
+  margin: 0 48px 0px 48px;
+}
+
+.authFileTitle {
+  margin: 0;
+  font-weight: var(--fontWeightSemiBold);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.listingImage {
+  max-width: 350px;
+  object-fit: contain;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(0.97);
+  }
+}
+
+.submitOfferButton {
+  /* font-family: 'Helvetica, Arial, sans-serif'; */
+}
+
+.richTitle {
+  font-family: 'hernandezbros' !important;
+  text-transform: uppercase !important;
+}
+
+.priceWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.priceContainer {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex-shrink: 0;
+  margin-right: 22px;
+  padding: 5px 12px;
+}
+
+.priceLabel {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: 'hernandezbros';
+}
+
+.priceAmount {
+  margin: 0;
+  font-size: 20px;
+}

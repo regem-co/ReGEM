@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{set-translations (asset "content/email-texts.json")}}
+  {{set-locale (asset "general/localization.json" "locale" "en_US")}}
+  {{set-timezone transaction.listing.availability-plan.timezone}}
+  <body style="font-family: Arial, sans-serif; color: #111; line-height: 1.5;">
+    {{#with transaction}}
+      <h2>{{t "PendingOfferFromProvider.Title" "New offer for {listingTitle}!" listingTitle=listing.title}}</h2>
+      <p>
+        {{t "PendingOfferFromProvider.SubTitle" "You have received a new offer."
+          listingTitle=listing.title
+          providerName=provider.display-name}}
+      </p>
+      <p>
+        <a href="{{marketplace.url}}/order/{{url-encode id}}/details">
+          {{t "PendingOfferFromProvider.CTA" "See Offer"}}
+        </a>
+      </p>
+    {{/with}}
+  </body>
+</html>

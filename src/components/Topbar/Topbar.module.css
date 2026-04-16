@@ -1,0 +1,265 @@
+@import '../../styles/customMediaQueries.css';
+
+.root {
+  width: 100%;
+
+  /* Top Bar's drop shadow should always be visible */
+  z-index: var(--zIndexTopbar);
+  position: relative;
+}
+
+.container {
+  /* Size */
+  width: 100%;
+  height: var(--topbarHeight);
+
+  /* Layout for child components */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* fill */
+  background-color: var(--matterColorLight);
+
+  /* shadows */
+  box-shadow: var(--boxShadow);
+
+  @media (--viewportMedium) {
+    display: none;
+  }
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: var(--topbarHeight);
+  padding: 10px;
+}
+
+.logo {
+  object-fit: contain;
+  width: 84px;
+}
+
+.logoutButton {
+  margin: 0;
+}
+
+.actionIcons {
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  padding-right: 10px;
+  width: 130px;
+}
+
+/* Child component's size (and positioning) should be given here */
+.menu,
+.searchMenu {
+  /* Font */
+  composes: h5 from global;
+  color: var(--matterColor);
+
+  /* Layout */
+  display: flex;
+  margin: 0;
+  border-width: 0px;
+  background-color: transparent;
+
+  /* Hovers */
+  &:enabled {
+    cursor: pointer;
+  }
+
+  &:enabled:hover,
+  &:enabled:active {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    cursor: auto;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  padding: 15px 24px;
+  position: relative;
+  width: 130px;
+}
+
+.searchMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  padding: 0;
+}
+
+.menuIcon,
+.searchMenuIcon {
+  margin: 9px 0;
+}
+
+.desktop {
+  display: none;
+
+  @media (--viewportMedium) {
+    display: block;
+  }
+}
+
+.mobile {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+/* Icon component styles */
+.rootMenuIcon {
+  fill: var(--matterColor);
+}
+
+.rootSearchIcon {
+  stroke: var(--matterColor);
+}
+
+.searchContainer {
+  position: relative;
+  height: 100%;
+  margin-top: 94px;
+}
+
+.mobileHelp {
+  color: var(--matterColorAnti);
+  margin: 0 24px;
+
+  /* Absolute position to avoid affecting the layout of the autocomplete
+   predictions list */
+  position: absolute;
+  top: 73px;
+}
+
+/* ================ Modal ================ */
+
+.searchModalRoot > div {
+
+  @media (--viewportMedium) {
+    background-color: var(--matterColorLight) !important;
+  }
+}
+
+.modalContainer {
+  composes: marketplaceModalInMobileBaseStyles from global;
+  padding: 0;
+
+  @media (--viewportMedium) {
+    flex-basis: 576px;
+  }
+}
+
+.missingInformationModal {
+  composes: marketplaceModalBaseStyles from global;
+  padding-top: 70px;
+}
+
+/* Title of the modal */
+.modalTitle {
+  composes: marketplaceModalTitleStyles from global;
+}
+
+/* Paragraph for the Modal */
+.modalMessage {
+  composes: marketplaceModalParagraphStyles from global;
+}
+
+/* Make the email pop */
+.email {
+  font-weight: var(--fontWeightHighlightEmail);
+}
+
+.helperLink {
+  composes: marketplaceModalHelperLink from global;
+}
+
+.helperText {
+  composes: marketplaceModalHelperText from global;
+}
+
+.error {
+  composes: marketplaceModalPasswordMargins from global;
+}
+
+.bottomWrapper {
+  composes: marketplaceModalBottomWrapper from global;
+
+  /* Align the helper links to the left since there isn't a Primary Button anymore */
+  text-align: left;
+}
+
+.modalIcon {
+  composes: marketplaceModalIconStyles from global;
+}
+
+.reminderModalLinkButton {
+  composes: button buttonFont buttonText buttonBorders buttonColorsPrimary from global;
+}
+
+.genericError {
+  position: fixed;
+  top: calc(var(--topbarHeight) + 15px);
+
+  /* Place enough to the right to hide the error */
+  right: -355px;
+  opacity: 0;
+
+  max-width: 340px;
+  margin: 0 15px;
+
+  /* Animate error from the right */
+  transition: all ease-out 0.2s;
+  transition-delay: 1s;
+
+  /* Bleed the bg color from the bottom */
+  padding-bottom: 4px;
+  background-color: var(--marketplaceColor);
+  border-radius: 4px;
+
+  /* Place on top of everything */
+  z-index: var(--zIndexGenericError);
+
+  @media (--viewportMedium) {
+    top: calc(var(--topbarHeightDesktop) + 15px);
+  }
+}
+
+.genericErrorVisible {
+  right: 0;
+  opacity: 1;
+}
+
+.genericErrorContent {
+  padding: 16px 22px;
+  border-radius: 4px;
+  background-color: var(--marketplaceColorLight);
+  border-radius: 4px;
+}
+
+.genericErrorText {
+  composes: h5 from global;
+  font-weight: var(--fontWeightSemiBold);
+  margin: 0;
+  color: var(--matterColorLight);
+
+  @media (--viewportMedium) {
+    margin: 0;
+  }
+}

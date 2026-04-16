@@ -1,0 +1,27 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 40px;
+}
+
+.searchInput {
+  background-color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 100%;
+}
+
+.searchButton {
+  font-family: 'hernandezbros' !important;
+  min-height: 100%;
+  margin-left: 0;
+  height: 100%;
+  width: 80px;
+  border-radius: 3px;
+  color: white;
+}

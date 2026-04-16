@@ -1,0 +1,54 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.searchOptions {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+}
+
+.searchResultSummary {
+  composes: h4 from global;
+  line-height: 20px;
+
+  margin-top: 10px;
+  margin-bottom: 11px;
+  margin-left: 0px;
+  margin-right: 8px;
+}
+
+.loadingResults {
+  composes: h4 from global;
+  line-height: 20px;
+
+  /* Cover parent element's space*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Layout */
+  padding: 9px 0 0 0;
+  margin: 0;
+}
+
+.resultsFound {
+  white-space: nowrap;
+}
+
+.sortyByWrapper {
+  display: inline-flex;
+  margin-left: auto;
+}
+
+.sortyBy {
+  composes: marketplaceSmallFontStyles from global;
+  font-weight: var(--fontWeightRegular);
+  padding: 8px 8px 8px 0;
+}

@@ -1,0 +1,332 @@
+@import '../../../../styles/customMediaQueries.css';
+
+/* Dummy Topbar */
+
+.topbar {
+  /* Size */
+  width: 100%;
+  height: var(--topbarHeight);
+
+  /* Layout for child components */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* fill */
+  background-color: var(--matterColorLight);
+
+  /* shadows */
+  box-shadow: var(--boxShadow);
+
+  @media (--viewportLarge) {
+    height: var(--topbarHeightDesktop);
+    justify-content: center;
+  }
+}
+
+.home {
+  display: flex;
+  height: var(--topbarHeight);
+  padding: calc((var(--topbarHeight) - var(--CheckoutPage_logoHeight)) / 2) 24px;
+
+  @media (--viewportLarge) {
+    height: var(--topbarHeightDesktop);
+    padding: calc((var(--topbarHeightDesktop) - var(--CheckoutPage_logoHeightDesktop)) / 2) 36px;
+  }
+}
+
+.logoMobile {
+  display: block;
+  object-fit: contain;
+
+  & path {
+    fill: var(--marketplaceColor);
+  }
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.logoDesktop {
+  display: none;
+  width: auto;
+  height: 27px;
+
+  @media (--viewportLarge) {
+    display: block;
+  }
+}
+
+/* /Dummy Topbar */
+
+/**
+ * Content: mobile flow vs desktop 2 columns
+ * desktop has reduced version of bookListingContainer (incl. title and Stripe paymentForm).
+ * priceBreakdown is inside separate column (detailsContainerDesktop)
+ */
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+
+  @media (--viewportLarge) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 48px;
+  }
+}
+
+.bookListingContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media (--viewportLarge) {
+    margin-top: 121px;
+  }
+}
+
+.aspectWrapper {
+  position: relative;
+  background-color: var(--matterColorNegative); /* Loading BG color */
+
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.rootForImage {
+  /* Layout - image will take space defined by aspect ratio wrapper */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  @media (--viewportLarge) {
+    border-radius: 2px 2px 0 0;
+  }
+}
+
+.avatarWrapper {
+  /* Position (over the listing image)*/
+  margin-left: 24px;
+  margin-top: -31px;
+
+  /* Rendering context to the same lavel as listing image */
+  position: relative;
+
+  /* Layout */
+  display: block;
+
+  @media (--viewportLarge) {
+    margin-left: 48px;
+  }
+}
+
+.avatarMobile {
+  @media (--viewportLarge) {
+    display: none;
+  }
+}
+
+.heading {
+  margin-top: 29px;
+  margin-bottom: 34px;
+  padding: 0 24px;
+
+  @media (--viewportMedium) {
+    margin-top: 27px;
+    margin-bottom: 30px;
+  }
+
+  @media (--viewportLarge) {
+    margin-top: 0px;
+    margin-bottom: 48px;
+    padding: 0;
+  }
+}
+
+.title {
+  /* Font */
+  color: var(--matterColor);
+
+  /* Layout */
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 7px;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+}
+
+.author {
+  width: 100%;
+  composes: h4 from global;
+
+  /* Reset margins from font styles */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.priceBreakdownContainer {
+  margin-bottom: 30px;
+
+  @media (--viewportMedium) {
+    margin-bottom: 38px;
+  }
+  @media (--viewportLarge) {
+    /* we don't show price breakdown since it will be visible within 2nd column (detailsContainerDesktop) */
+    display: none;
+  }
+}
+
+.priceBreakdownTitle {
+  /* Font */
+  color: var(--matterColorAnti);
+
+  margin-top: 0;
+  margin-bottom: 14px;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
+  @media (--viewportLarge) {
+    margin-top: 0;
+    margin-bottom: 14px;
+  }
+}
+
+.paymentContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+  margin-bottom: 35px;
+
+  @media (--viewportMedium) {
+    margin-top: 2px;
+    margin-bottom: 120px;
+  }
+
+  @media (--viewportLarge) {
+    margin-top: 0;
+    padding: 0 48px;
+  }
+}
+
+.orderError,
+.notFoundError {
+  margin: 11px 0 12px 0;
+
+  @media (--viewportMedium) {
+    margin: 10px 0 12px 0;
+  }
+}
+.orderError {
+  color: var(--failColor);
+}
+.notFoundError {
+  color: var(--attentionColor);
+}
+
+.speculateError {
+  color: var(--failColor);
+  margin: 19px 0 1px 0;
+
+  @media (--viewportLarge) {
+    margin: 28px 48px 0 48px;
+  }
+}
+
+.paymentForm {
+  flex-grow: 1;
+}
+
+/* Details column is visible only on desktop */
+.detailsContainerDesktop {
+  display: none;
+
+  @media (--viewportLarge) {
+    flex-shrink: 0;
+    display: block;
+    /* Dimensions */
+    width: 409px;
+    padding-bottom: 55px;
+
+    /* Position */
+    margin: 120px 0 24px 0;
+
+    /* Coloring */
+    /* background-color: var(--matterColorLight);
+    border: 1px solid var(--matterColorNegative);
+    border-radius: 2px; */
+  }
+}
+
+.detailsAspectWrapper {
+  position: relative;
+  background-color: var(--matterColorNegative); /* Loading BG color */
+}
+
+.detailsHeadings {
+  display: none;
+
+  @media (--viewportLarge) {
+    display: block;
+    margin: 0 48px;
+  }
+}
+
+.detailsTitle {
+  margin-bottom: 10px;
+
+  @media (--viewportLarge) {
+    margin-top: 19px;
+    margin-bottom: 0px;
+    padding: 1px 0 7px 0;
+  }
+}
+
+.detailsSubtitle {
+  composes: h5 from global;
+
+  /* Reset margins from font styles */
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportLarge) {
+    padding: 3px 0 5px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.orderBreakdownTitle {
+  /* Font */
+  composes: h3 from global;
+  color: var(--matterColor);
+
+  /* Layout spacing */
+  margin: 5px 24px 25px 24px;
+
+  @media (--viewportLarge) {
+    padding: 6px 0 2px 0;
+    margin: 16px 48px 8px 48px;
+  }
+}
+
+.orderBreakdown {
+  @media (--viewportLarge) {
+    margin: 0 48px;
+  }
+}

@@ -1,0 +1,48 @@
+@import '../../styles/customMediaQueries.css';
+
+.root {
+  display: flex;
+  width: 85vw;
+  flex-direction: column;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu {
+  composes: h2 from global;
+  color: var(--marketplaceColor);
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.submenu {
+  composes: menu;
+  margin-left: 11px;
+  padding: 0px;
+  margin-bottom: 0px;
+  text-transform: none;
+}
+
+.submenuAll {
+  composes: submenu;
+  text-transform: uppercase;
+}
+
+.icon {
+  position: relative;
+  /* margin-left: 22px; */
+  transition: all 0.4s ease-out;
+  transform: scale(2);
+
+  @media (--viewportMedium) {
+    margin-left: 36px;
+  }
+}
+
+.iconArrowAnimation {
+  transform: rotate(-180deg) scale(2);
+}

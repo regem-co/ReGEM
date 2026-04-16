@@ -1,0 +1,78 @@
+.hiddenFileInput {
+  position: fixed;
+  visibility: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.fileWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.addFileButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--marketplaceColor);
+  padding: 5px 15px;
+  font-weight: var(--fontWeightSemiBold);
+  font-size: 14px;
+  color: white;
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  min-height: 60px;
+  margin-left: 10px;
+  &:hover {
+    background-color: var(--marketplaceColorDark);
+  }
+}
+
+.fileIcon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 110px;
+  margin-top: 0;
+  cursor: pointer;
+  &:hover {
+    color: var(--marketplaceColor);
+  }
+}
+
+.icon {
+  font-size: 40px !important;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  cursor: pointer;
+  color: var(--matterColor) !important;
+  transform: scale(0.85);
+  &:hover {
+    color: red !important;
+  }
+}
+
+.label {
+  font-weight: var(--fontWeightSemiBold);
+  /* line-height: 16px; */
+  /* font-size: 14px; */
+}
+
+.fileLabel {
+  line-height: 18px;
+  margin: 0;
+  text-align: center;
+}

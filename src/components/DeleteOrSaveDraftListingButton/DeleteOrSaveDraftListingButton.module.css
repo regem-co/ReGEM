@@ -1,0 +1,23 @@
+.buttonWrapper {
+  cursor: pointer;
+  border: 2px solid var(--marketplaceColorDark);
+  padding: 0 10px;
+  border-radius: 5px;
+  &:hover {
+    color: var(--marketplaceColor);
+  }
+}
+
+.modalContent {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.infoText {
+  text-transform: lowercase;
+  text-align: start;
+  width: 100%;
+}

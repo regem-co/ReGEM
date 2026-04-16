@@ -1,0 +1,174 @@
+@import '../../styles/customMediaQueries.css';
+.dropdown {
+  position: absolute;
+  top: 100%; /* Below the bell icon */
+  right: 0;
+  width: 330px; /* Adjust width as needed */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  z-index: 1000;
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: space-around; /* Align tabs evenly */
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.tabsContainer button {
+  flex: 1; /* Each tab takes equal width */
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #333;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabsContainer button:hover {
+  color: #007bff; /* Add hover effect */
+}
+
+.activeTab {
+  font-weight: bold;
+  color: #007bff;
+  border-bottom: 2px solid #007bff; /* Highlight active tab */
+}
+
+.tabContent {
+  padding: 15px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-top: 4px;
+}
+
+.messages {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.wrapper {
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (--viewportMedium) {
+    height: 100%;
+    min-width: 60px;
+    position: relative;
+  }
+}
+
+.button {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition-duration: 0.3s;
+  border: none;
+}
+
+.bell {
+  width: 18px;
+  height: 20px;
+}
+
+.bellRings {
+  animation: bellRing 0.9s infinite;
+  width: 18px;
+  height: 20px;
+}
+
+/* bell ringing animation keyframes*/
+@keyframes bellRing {
+  0%,
+  100% {
+    transform-origin: top;
+  }
+
+  15% {
+    transform: rotateZ(10deg);
+  }
+
+  30% {
+    transform: rotateZ(-10deg);
+  }
+
+  45% {
+    transform: rotateZ(5deg);
+  }
+
+  60% {
+    transform: rotateZ(-5deg);
+  }
+
+  75% {
+    transform: rotateZ(2deg);
+  }
+}
+
+.button:active {
+  transform: scale(0.8);
+}
+
+
+.notificationDot {
+  /* Dimensions */
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+  color: var(--matterColorLight);
+  font-weight: var(--fontWeightMedium);
+
+  /* Position */
+  position: absolute;
+  top: 10px;
+  right: 0px;
+
+  /* Style: red dot with white border */
+  background-color: var(--failColor);
+
+  animation-name: notificationPop;
+  animation-duration: 0.1s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+
+  animation-timing-function: ease-in;
+  opacity: 0;
+  transform: scale(0);
+
+  @media (--viewportMedium) {
+    top: 18px;
+    right: 4px;
+  }
+}
+
+@keyframes notificationPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

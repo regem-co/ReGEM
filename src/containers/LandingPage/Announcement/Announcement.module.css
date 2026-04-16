@@ -1,0 +1,94 @@
+@keyframes rise {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 50px;
+    opacity: 1;
+  }
+}
+@keyframes collapse {
+  from {
+    height: 50px;
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes riseMobile {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 100px;
+    opacity: 1;
+  }
+}
+@keyframes collapseMobile {
+  from {
+    height: 100px;
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  font-size: 18px;
+  background-color: var(--marketplaceColor);
+  z-index: 9999;
+  padding: 20px;
+
+  animation-name: rise;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: forwards;
+
+  @media (max-width: 768px) {
+    animation-name: riseMobile;
+  }
+}
+
+.wrapperHidden {
+  height: 0;
+  overflow: hidden;
+
+  animation-name: collapse;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: forwards;
+}
+
+.closeIcon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.text {
+  line-height: 22px;
+  font-size: 20px;
+}
+@media(max-width:768px){
+  .wrapper{
+    height: 75px!important;
+  }
+}

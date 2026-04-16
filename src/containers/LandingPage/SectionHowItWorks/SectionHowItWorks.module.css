@@ -1,0 +1,103 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  background-color: #f7f9fa;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.title {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'hernandezbros';
+  font-size: 30px;
+
+  @media (max-width: 768px) {
+    line-height: 40px;
+  }
+}
+
+.title1 {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: 'inter';
+  font-size: 25px;
+  margin-right: 5px;
+
+  @media (max-width: 768px) {
+    line-height: 40px;
+  }
+}
+
+.tabsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 40px;
+  }
+}
+
+.tab {
+  margin: 0 20px;
+  font-size: 25px;
+  cursor: pointer;
+  padding-bottom: 3px;
+  color: grey;
+}
+
+.selectedTab {
+  margin: 0 20px;
+  font-size: 25px;
+  cursor: pointer;
+  border-bottom: 3px solid var(--marketplaceColor);
+}
+
+.infoBoxesWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 5%;
+  }
+}
+
+.box {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.boxImage {
+  width: 100%;
+  object-fit: cover;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.boxTitle {
+  font-size: 20px;
+  font-weight: 500;
+  /* text-transform: uppercase; */
+  font-family: 'hernandezbros';
+}
+
+.boxBody {
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  height: 150px;
+}

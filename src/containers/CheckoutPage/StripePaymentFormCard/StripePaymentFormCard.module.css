@@ -1,0 +1,236 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.pickupWrapper {
+  margin-bottom: 40px;
+}
+
+.pickupHeading {
+  margin: 0 0 12px 0;
+  color: var(--matterColorAnti);
+
+  padding-top: 4px;
+  padding-bottom: 2px;
+
+  @media (--viewportMedium) {
+    margin: 0 0 8px 0;
+    padding-top: 5px;
+    padding-bottom: 3px;
+  }
+}
+
+.pickupDetails {
+  composes: marketplaceSmallFontStyles from global;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.card {
+  composes: marketplaceInputStyles from global;
+
+  /* Layout */
+  padding: 8px 0 6px 0;
+  height: 36px;
+
+  /* Border */
+  border-bottom-color: var(--attentionColor);
+
+  @media (--viewportMedium) {
+    height: 38px;
+  }
+  @media (--viewportLarge) {
+    height: 38px;
+    padding: 6px 0 14px 0;
+  }
+}
+
+.cardSuccess {
+  border-bottom-color: var(--successColor);
+}
+
+.cardError {
+  border-bottom-color: var(--failColor);
+}
+
+.error {
+  color: var(--failColor);
+}
+
+.errorMessage {
+  margin-top: 24px;
+  color: var(--failColor);
+}
+
+.paymentHeading {
+  margin: 0 0 12px 0;
+  color: var(--matterColor);
+
+  padding-top: 4px;
+  padding-bottom: 2px;
+
+  @media (--viewportMedium) {
+    margin: 0 0 16px 0;
+    padding-top: 5px;
+    padding-bottom: 3px;
+  }
+}
+
+.paymentMethodSelector {
+  margin-bottom: 36px;
+
+  @media (--viewportMedium) {
+    margin-bottom: 40px;
+  }
+}
+
+.saveForLaterUse {
+  padding-top: 6px;
+  margin-bottom: 36px;
+
+  @media (--viewportMedium) {
+    padding-top: 8px;
+    margin-top: 0px;
+    margin-bottom: 48px;
+  }
+}
+
+.saveForLaterUseCheckbox {
+  display: inline-block;
+  padding: 2px 0 3px 0;
+
+  @media (--viewportMedium) {
+    padding: 1px 0 0px 0;
+  }
+}
+
+.saveForLaterUseLabel {
+  composes: h5 from global;
+
+  color: var(--matterColor);
+  margin-top: 3px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+.saveForLaterUseLegalInfo {
+  composes: h5 from global;
+
+  color: var(--matterColorAnti);
+  display: inline-block;
+  padding: 0px 0 0px 26px;
+  margin-top: -2px;
+  margin-bottom: 2px;
+
+  @media (--viewportMedium) {
+    margin-top: -1px;
+    margin-bottom: 1px;
+  }
+}
+
+.billingDetails {
+  margin-bottom: 48px;
+}
+
+.billingHeading {
+  margin: 0 0 12px 0;
+  color: var(--matterColor);
+
+  padding-top: 4px;
+  padding-bottom: 2px;
+
+  @media (--viewportMedium) {
+    margin: 0 0 24px 0;
+    padding-top: 6px;
+    padding-bottom: 2px;
+  }
+}
+
+.sameAddressCheckbox {
+  display: block;
+  margin: 24px 0;
+}
+
+.paymentLabel {
+  margin: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+}
+
+.messageHeading {
+  color: var(--matterColor);
+  margin: 36px 0 12px 0;
+
+  padding-top: 4px;
+  padding-bottom: 2px;
+
+  @media (--viewportMedium) {
+    margin: 0 0 24px 0;
+    padding-top: 5px;
+    padding-bottom: 3px;
+  }
+}
+
+.messageLabel {
+  margin: 0 0 5px 0;
+
+  @media (--viewportMedium) {
+    margin: 0 0 6px 0;
+  }
+}
+
+.messageOptional {
+  color: var(--matterColorAnti);
+}
+
+.message {
+  border-bottom-color: var(--matterColorAnti);
+}
+
+.submitContainer {
+  margin-top: auto;
+
+  @media (--viewportLarge) {
+    margin-top: 72px;
+  }
+}
+
+.paymentInfo {
+  composes: h5 from global;
+
+  color: var(--matterColorAnti);
+  text-align: center;
+  margin: 28px 0 0 0;
+
+  @media (--viewportLarge) {
+    font-size: 14px;
+    padding: 2px 0 6px 0;
+    margin: 24px 0 0 0;
+  }
+}
+
+.submitButton {
+  margin-top: 22px;
+
+  @media (--viewportMedium) {
+    margin-top: 26px;
+  }
+  @media (--viewportLarge) {
+    margin-top: 16px;
+  }
+}
+
+.missingStripeKey {
+  color: var(--failColor);
+}

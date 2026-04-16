@@ -1,0 +1,149 @@
+/**
+ *  TopbarMobileMenu prints the menu content for authenticated user or
+ * shows login actions for those who are not authenticated.
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+import { ACCOUNT_SETTINGS_PAGES } from '../../../routing/routeConfiguration';
+import { FormattedMessage } from '../../../util/reactIntl';
+import { propTypes } from '../../../util/types';
+import { ensureCurrentUser } from '../../../util/data';
+
+import { AvatarLarge, InlineTextButton, NamedLink, NotificationBadge } from '../../../components';
+import ExpandableCategoriesMenu from '../../ExpandableCategoriesMenu/ExpandableCategoriesMenu';
+
+import css from './TopbarMobileMenu.module.css';
+
+const TopbarMobileMenu = props => {
+  const {
+    isAuthenticated,
+    currentPage,
+    currentUser,
+    onLogout,
+    history,
+  } = props;
+
+  const user = ensureCurrentUser(currentUser);
+
+  if (!isAuthenticated) {
+    const signup = (
+      <NamedLink name="SignupPage" className={css.signupLink}>
+        <FormattedMessage id="TopbarMobileMenu.signupLink" />
+      </NamedLink>
+    );
+
+    const login = (
+      <NamedLink name="LoginPage" className={css.loginLink}>
+        <FormattedMessage id="TopbarMobileMenu.loginLink" />
+      </NamedLink>
+    );
+
+    const signupOrLogin = (
+      <span className={css.authenticationLinks}>
+        <FormattedMessage id="TopbarMobileMenu.signupOrLogin" values={{ signup, login }} />
+      </span>
+    );
+    return (
+      <div className={css.root}>
+        <div className={css.content}>
+          <div className={css.authenticationGreeting}>
+            <FormattedMessage
+              id="TopbarMobileMenu.unauthorizedGreeting"
+              values={{ lineBreak: <br />, signupOrLogin }}
+            />
+          </div>
+          <ExpandableCategoriesMenu history={history} />
+        </div>
+        <div className={css.footer}>
+          <NamedLink className={css.createNewListingLink} name="NewListingPage">
+            <FormattedMessage id="TopbarMobileMenu.newListingLink" />
+          </NamedLink>
+        </div>
+      </div>
+    );
+  }
+
+  const displayName = user.attributes.profile.firstName;
+  const currentPageClass = page => {
+    const isAccountSettingsPage =
+      page === 'AccountSettingsPage' && ACCOUNT_SETTINGS_PAGES.includes(currentPage);
+    return currentPage === page || isAccountSettingsPage ? css.currentPage : null;
+  };
+
+  return (
+    <div className={css.root}>
+      <AvatarLarge className={css.avatar} user={currentUser} />
+      <div className={css.content}>
+        <span className={css.greeting}>
+          <FormattedMessage id="TopbarMobileMenu.greeting" values={{ displayName }} />
+        </span>
+        <InlineTextButton rootClassName={css.logoutButton} onClick={onLogout}>
+          <FormattedMessage id="TopbarMobileMenu.logoutLink" />
+        </InlineTextButton>
+
+        <br />
+        <NamedLink className={css.navigationLink} name="InboxPage" params={{ tab: 'chats' }}>
+          <FormattedMessage id="My messages" />
+        </NamedLink>
+        <NamedLink
+          className={classNames(css.navigationLink, currentPageClass('ManageListingsPage'))}
+          name="ManageListingsPage"
+        >
+          <FormattedMessage id="TopbarMobileMenu.yourListingsLink" />
+        </NamedLink>
+        <NamedLink
+          className={classNames(css.navigationLink, currentPageClass('InboxPage'))}
+          name="InboxPage"
+          params={{ tab: 'sales' }}
+        >
+          <FormattedMessage id="My sales" />
+        </NamedLink>
+        <NamedLink
+          className={classNames(css.navigationLink)}
+          name="InboxPage"
+          params={{ tab: 'orders' }}
+        >
+          <FormattedMessage id="My orders" />
+        </NamedLink>
+        {/* fav listings link */}
+
+        <NamedLink
+          className={classNames(css.navigationLink, currentPageClass('FavListingsPage'))}
+          name="FavListingsPage"
+        >
+          <FormattedMessage id="TopbarMobileMenu.FavListingsPage" />
+        </NamedLink>
+
+        <NamedLink
+          className={classNames(css.navigationLink, currentPageClass('AccountSettingsPage'))}
+          name="AccountSettingsPage"
+        >
+          <FormattedMessage id="TopbarMobileMenu.accountSettingsLink" />
+        </NamedLink>
+        <ExpandableCategoriesMenu history={history} />
+
+        <div className={css.spacer} />
+      </div>
+      <div className={css.footer}>
+        <NamedLink className={css.createNewListingLink} name="NewListingPage">
+          <FormattedMessage id="TopbarMobileMenu.newListingLink" />
+        </NamedLink>
+      </div>
+    </div>
+  );
+};
+
+TopbarMobileMenu.defaultProps = { currentUser: null, currentPage: null };
+
+const { bool, func, string } = PropTypes;
+
+TopbarMobileMenu.propTypes = {
+  isAuthenticated: bool.isRequired,
+  currentUser: propTypes.currentUser,
+  currentPage: string,
+  onLogout: func.isRequired,
+};
+
+export default TopbarMobileMenu;

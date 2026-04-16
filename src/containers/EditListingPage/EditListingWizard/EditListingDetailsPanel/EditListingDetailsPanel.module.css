@@ -1,0 +1,26 @@
+@import '../../../../styles/customMediaQueries.css';
+
+.root {
+  flex-grow: 1;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  flex-grow: 1;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 19px;
+  font-family: 'hernandezbros';
+  text-transform: uppercase;
+  @media (--viewportLarge) {
+    margin-bottom: 38px;
+    padding: 1px 0 7px 0;
+  }
+}

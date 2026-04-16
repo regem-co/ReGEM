@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}} {{t "PendingOffer.Subject" "Remember to ship {listingTitle}❗ " listingTitle=transaction.listing.title customerName=transaction.customer.display-name}}

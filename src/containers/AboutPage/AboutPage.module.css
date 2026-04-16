@@ -1,0 +1,50 @@
+@import '../../styles/customMediaQueries.css';
+
+.pageTitle {
+  text-align: center;
+}
+
+.staticPageWrapper {
+  width: 100%;
+  padding: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+.coverImage {
+  width: 50%;
+  border-radius: 10px;
+  max-height: 60vh;
+  object-fit: cover;
+  object-position: top;
+  @media (max-width: 900px) {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+.content {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 20px 20px 20px;
+  margin: 0;
+  line-height: 25px;
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

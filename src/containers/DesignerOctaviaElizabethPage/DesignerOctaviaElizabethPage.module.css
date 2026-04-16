@@ -1,0 +1,217 @@
+@import '../../styles/customMediaQueries.css';
+
+.root {
+}
+
+/* heroContainer gives the height for SectionHero */
+/* Safari has a bug with vw padding inside flexbox. Therefore we need an extra div (container) */
+/* If you've lot of content for the hero, multiple lines of text, make sure to adjust min-heights for each media breakpoint accordingly */
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  height: 40vh;
+  padding: 0;
+  box-sizing: border-box;
+
+  @media (--viewportMedium) {
+    height: 90vh;
+    max-height: none;
+  }
+
+  @media (--viewportLarge) {
+    height: calc(90vh - var(--topbarHeightDesktop));
+  }
+
+  /* Safari specific adjustment */
+  @supports (-webkit-touch-callout: none) {
+    height: auto;
+    min-height: 40vh;
+    padding-bottom: 20px; /* Add some padding to avoid overlap */
+  }
+}
+
+.heroRoot {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  /* Safari specific adjustment */
+  @supports (-webkit-touch-callout: none) {
+    height: auto;
+    flex: 1 0 auto; /* Ensure it grows correctly */
+  }
+}
+
+
+.hero {
+  flex-grow: 1;
+  justify-content: flex-end;
+
+  @media (--viewportMedium) {
+  }
+
+  @media (--viewportLarge) {
+    justify-content: center;
+  }
+}
+
+.sections {
+  margin: 0;
+  padding-top: 1px;
+  margin-top: -200px; /* Adjust this value for the desired spacing */
+
+  @media (max-width: 800px) {
+    margin-top: -300px; /* Adjust this value for mobile */
+  }
+
+  /* Safari specific adjustment */
+  @supports (-webkit-touch-callout: none) {
+    margin-top: calc(40vh + 20px); /* Ensure proper spacing in Safari */
+  }
+}
+
+.section {
+  overflow: auto;
+}
+
+
+@media screen and (max-width: 800px) {
+  .sections {
+    margin-top: 80px;
+  }
+} 
+
+
+/* Square corners for the last section if it's even */
+.section:nth-of-type(2n):last-of-type {
+  @media (--viewportMedium) {
+    border-radius: 4px 4px 0 0;
+  }
+}
+
+/* Every other section has a light background */
+.section:nth-of-type(2n) {
+  background-color: var(--matterColorLight);
+  @media (--viewportMedium) {
+    border-radius: 4px;
+  }
+}
+
+.sectionContent {
+  margin: var(--LandingPage_sectionMarginTop) 24px 51px 24px;
+
+  @media (max-width: 768px) {
+    margin: var(--LandingPage_sectionMarginTopMedium) 16px 30px 16px;
+  }
+
+  @media (--viewportLarge) {
+    max-width: 1128px;
+    padding: 0 36px 0 36px;
+    margin: var(--LandingPage_sectionMarginTopLarge) auto 93px auto;
+  }
+}
+
+
+.sectionContentFirstChild {
+  composes: sectionContent;
+  margin-top: 3vh;
+}
+
+/* A bar on top of light sections */
+.section:nth-of-type(2n) .sectionContent::before {
+  background: var(--marketplaceColor);
+  content: '';
+  display: block;
+  width: 109px;
+  height: 6px;
+
+  /* Place the bar on top of .sectionContent top margin */
+  position: relative;
+  top: calc(-1 * var(--LandingPage_sectionMarginTop));
+
+  @media (--viewportMedium) {
+    width: 192px;
+    height: 8px;
+    top: calc(-1 * var(--LandingPage_sectionMarginTopMedium));
+  }
+
+  @media (--viewportLarge) {
+    top: calc(-1 * var(--LandingPage_sectionMarginTopLarge));
+  }
+}
+
+
+.heroContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroContentLeft, .heroContentRight {
+  flex: 1;
+  text-align: center;
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+  }
+}
+
+
+@supports (-webkit-touch-callout: none) {
+  .heroContainer {
+    height: auto;
+    min-height: 40vh;
+    padding-bottom: 20px; /* Add some padding to avoid overlap */
+  }
+
+  .heroRoot {
+    height: auto;
+    flex: 1 0 auto; /* Ensure it grows correctly */
+  }
+}
+
+:root {
+  --hero-height: 30vh;
+  --hero-height-mobile: 50vh;
+}
+
+.heroContainer {
+  min-height: var(--hero-height);
+  height: var(--hero-height);
+  padding: 0;
+
+  @media (--viewportMedium) {
+    height: var(--hero-height-mobile);
+  }
+
+  @media (--viewportLarge) {
+    height: calc(var(--hero-height-mobile) - var(--topbarHeightDesktop)+100px);
+  }
+}
+
+.sections {
+  margin-top: calc(var(--hero-height) -200px); 
+
+  @media (max-width: 800px) {
+    margin-top: calc(var(--hero-height-mobile) + 70px);
+  } 
+}
+
+
+/* 
+.heroContainer {
+  border: 2px solid red; 
+}
+
+.heroRoot {
+  border: 2px solid blue; 
+}
+
+.sections {
+  border: 2px solid green; 
+} */

@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckoutPage matches snapshot 1`] = `
+<Page
+  scrollingDisabled={false}
+  title="CheckoutPage.title"
+>
+  <div
+    className="topbar"
+  >
+    <NamedLink
+      className="home"
+      name="LandingPage"
+    >
+      <Logo
+        className="logoMobile"
+        format="mobile"
+        title="CheckoutPage.goToLandingPage"
+      />
+      <Logo
+        alt="CheckoutPage.goToLandingPage"
+        className="logoDesktop"
+        format="desktop"
+      />
+    </NamedLink>
+  </div>
+  <div
+    className="contentContainer"
+  >
+    <AspectRatioWrapper
+      className="aspectWrapper"
+      height={400}
+      rootClassName={null}
+      width={400}
+    >
+      <ResponsiveImage
+        alt="listing1 title"
+        className={null}
+        image={null}
+        noImageMessage={null}
+        rootClassName="rootForImage"
+        variants={Array []}
+      />
+    </AspectRatioWrapper>
+    <div
+      className="avatarWrapper avatarMobile"
+    >
+      <AvatarMedium
+        disableProfileLink={true}
+        user={
+          Object {
+            "attributes": Object {
+              "banned": false,
+              "deleted": false,
+              "profile": Object {
+                "abbreviatedName": "TT",
+                "displayName": "author display name",
+              },
+            },
+            "id": UUID {
+              "_sdkType": "UUID",
+              "uuid": "author",
+            },
+            "type": "user",
+          }
+        }
+      />
+    </div>
+    <div
+      className="bookListingContainer"
+    >
+      <div
+        className="heading"
+      >
+        <h1
+          className="title"
+        >
+          CheckoutPage.title
+        </h1>
+        <div
+          className="author"
+        >
+          <MemoizedFormattedMessage
+            id="CheckoutPage.providerInfo"
+            values={
+              Object {
+                "name": "author display name",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="priceBreakdownContainer"
+      />
+      <section
+        className="paymentContainer"
+      >
+        <injectIntl(StripePaymentForm)
+          askShippingDetails={true}
+          authorDisplayName="author display name"
+          className="paymentForm"
+          confirmPaymentError={null}
+          defaultPaymentMethod={null}
+          formId="CheckoutPagePaymentForm"
+          hasHandledCardPayment={null}
+          inProgress={false}
+          initialValues={
+            Object {
+              "name": "currentUser first name currentUser last name",
+              "recipientName": "currentUser first name currentUser last name",
+            }
+          }
+          initiateOrderError={null}
+          loadingData={true}
+          onStripeInitialized={[Function]}
+          onSubmit={[Function]}
+          paymentIntent={null}
+          showInitialMessageInput={true}
+          totalPrice={null}
+        />
+      </section>
+    </div>
+    <div
+      className="detailsContainerDesktop"
+    >
+      <AspectRatioWrapper
+        className="detailsAspectWrapper"
+        height={400}
+        rootClassName={null}
+        width={400}
+      >
+        <ResponsiveImage
+          alt="listing1 title"
+          className={null}
+          image={null}
+          noImageMessage={null}
+          rootClassName="rootForImage"
+          variants={Array []}
+        />
+      </AspectRatioWrapper>
+      <div
+        className="avatarWrapper"
+      >
+        <AvatarMedium
+          disableProfileLink={true}
+          user={
+            Object {
+              "attributes": Object {
+                "banned": false,
+                "deleted": false,
+                "profile": Object {
+                  "abbreviatedName": "TT",
+                  "displayName": "author display name",
+                },
+              },
+              "id": UUID {
+                "_sdkType": "UUID",
+                "uuid": "author",
+              },
+              "type": "user",
+            }
+          }
+        />
+      </div>
+      <div
+        className="detailsHeadings"
+      >
+        <h2
+          className="detailsTitle"
+        >
+          listing1 title
+        </h2>
+        <p
+          className="detailsSubtitle"
+        >
+          55 CheckoutPage.perUnit
+        </p>
+      </div>
+      <h2
+        className="orderBreakdownTitle"
+      >
+        <MemoizedFormattedMessage
+          id="CheckoutPage.orderBreakdown"
+        />
+      </h2>
+    </div>
+  </div>
+</Page>
+`;

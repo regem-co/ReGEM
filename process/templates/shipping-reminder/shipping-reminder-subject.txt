@@ -1,0 +1,1 @@
+{{set-translations (asset "content/email-texts.json")}} {{t "PurchaseShippingReminder.Subject" "Remember to ship {listingTitle}❗ " listingTitle=transaction.listing.title}}

@@ -1,0 +1,486 @@
+{{~#*inline "format-money"~}} {{money-amount money}} {{money.currency}} {{~/inline~}}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="color-scheme" content="light" />
+<meta name="supported-color-schemes" content="light" />
+<html lang="en">
+  {{set-translations (asset "content/email-texts.json")}}
+  {{set-locale (asset "general/localization.json" "locale" "en_US")}}
+  {{set-timezone transaction.listing.availability-plan.timezone}}
+  <head data-id="__react-email-head"></head>
+    {{#with transaction}}
+  <body
+    data-id="__react-email-body"
+    style="
+      background-color: rgb(252, 252, 252);
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+        Noto Color Emoji;
+    "
+  >
+    <table
+      align="center"
+      width="100%"
+      data-id="__react-email-container"
+      role="presentation"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      style="
+        max-width: 37.5em;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(234, 234, 234);
+        border-radius: 0.25rem;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+      "
+    >
+      <tbody>
+        <tr style="width: 100%">
+          <td>
+            <table
+              align="center"
+              width="100%"
+              data-id="react-email-section"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              role="presentation"
+              style="
+                padding: 0.5rem;
+                margin-top: 32px;
+                background-color: rgb(247, 249, 250);
+                border-radius: 0.5rem;
+              "
+            >
+              <tbody>
+                <tr>
+                  <td>
+                    <img
+                      data-id="react-email-img"
+                      alt="Refind"
+                      src="https://refind-dev.herokuapp.com/static/logo.png"
+                      width="135"
+                      height="90"
+                      style="
+                        display: block;
+                        outline: none;
+                        border: none;
+                        text-decoration: none;
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        margin-left: auto;
+                        margin-right: auto;
+                      "
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <h2
+              data-id="react-email-heading"
+              style="
+                color: rgb(0, 0, 0);
+                font-size: 24px;
+                font-weight: 700;
+                text-align: center;
+                padding: 0px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                margin-left: 0px;
+                margin-right: 0px;
+              "
+            >
+            {{t "PurchaseShippingReminder.Title" " " listingTitle=listing.title}}
+            </h2>
+            <table
+              align="center"
+              width="100%"
+              data-id="react-email-section"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              role="presentation"
+            >
+              <tbody>
+                <tr>
+                  <td>
+                    <p
+                      data-id="react-email-text"
+                      style="font-size: 14px; line-height: 24px; margin: 16px 0; color: rgb(0, 0, 0)"
+                    >
+                    {{t "PurchaseShippingReminder.SubTitle" " " listingTitle=listing.title customerName=customer.display-name}}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              id="item-image"
+              align="center"
+              width="100%"
+              data-id="react-email-section"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              role="presentation"
+            >
+              <tbody>
+                <tr>
+                  <td>
+                    <table
+                      align="center"
+                      width="100%"
+                      data-id="react-email-section"
+                      border="0"
+                      cellpadding="0"
+                      cellspacing="0"
+                      role="presentation"
+                      style="
+                        height: 190px;
+                        width: 190px;
+                        border-radius: 9999px;
+                      "
+                    >
+                      <tbody>
+                        <tr>
+                          <td>
+                            <a
+                              href="{{marketplace.url}}/{{#eq recipient-role "customer"}}order{{else}}sale{{/eq}}/{{url-encode id}}/details"
+                              data-id="react-email-link"
+                              target="_blank"
+                              style="color: #067df7; text-decoration: none; text-decoration-line: underline"
+                              ><img
+                                data-id="react-email-img"
+                                alt="Refind"
+                                src="{{listing.public-data.imagesOrder.0.image}}"
+                                width="170"
+                                height="170"
+                                style="
+                                  display: block;
+                                  outline: none;
+                                  border: none;
+                                  text-decoration: none;
+                                  margin-top: 0px;
+                                  margin-bottom: 0px;
+                                  margin-left: auto;
+                                  margin-right: auto;
+                                  border-radius: 9999px;
+                                "
+                            /></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              align="center"
+              width="100%"
+              data-id="react-email-section"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              role="presentation"
+              style="padding-top: 2rem; padding-bottom: 2rem"
+            >
+              <tbody>
+                <tr>
+                  <td>
+                    <table
+                      align="center"
+                      width="100%"
+                      data-id="__react-email-container"
+                      role="presentation"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                      style="max-width: 37.5em; text-align: center"
+                    >
+                      <tbody>
+                        <tr style="width: 100%">
+                          <td>
+                            <a
+                              href="{{marketplace.url}}/{{#eq recipient-role "customer"}}order{{else}}sale{{/eq}}/{{url-encode id}}/details"
+                              data-id="react-email-button"
+                              target="_blank"
+                              style="
+                                line-height: 100%;
+                                text-decoration: none;
+                                display: inline-block;
+                                max-width: 100%;
+                                padding: 12px 20px;
+                                background-color: rgb(220, 196, 140);
+                                border-radius: 9999px;
+                                color: rgb(255, 255, 255);
+                                font-size: 12px;
+                                font-weight: 600;
+                                text-decoration-line: none;
+                                text-align: center;
+                              "
+                              ><span></span
+                              ><span
+                                style="
+                                  max-width: 100%;
+                                  display: inline-block;
+                                  line-height: 120%;
+                                  mso-padding-alt: 0px;
+                                  mso-text-raise: 9px;
+                                "
+                                >{{t "PurchaseShippingReminder.CTA" " "}}</span
+                              ><span></span
+                            ></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              align="center"
+              width="100%"
+              data-id="react-email-section"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              role="presentation"
+            >
+              <tbody>
+                <tr>
+                  <td>
+                    <table
+                      align="center"
+                      width="100%"
+                      data-id="__react-email-container"
+                      role="presentation"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                      style="max-width: 37.5em; text-align: center"
+                    >
+                      <tbody>
+                        <tr style="width: 100%">
+                          <td>
+                            <p
+                              data-id="react-email-text"
+                              style="
+                                font-size: 18px;
+                                line-height: 24px;
+                                margin: 16px 0;
+                                color: rgb(0, 0, 0);
+                                font-weight: 700;
+                              "
+                            >
+                              {{t "PurchaseShippingReminder.StepsTitle" " "}}
+                            </p>
+                            <p
+                              data-id="react-email-text"
+                              style="font-size: 14px; line-height: 24px; margin: 16px 0; color: rgb(0, 0, 0)"
+                            >
+                              1. {{t "PurchaseShippingReminder.Step1" " "}}
+                              <a
+                                href="https://joinrefind.com/p/shipping"
+                                data-id="react-email-link"
+                                target="_blank"
+                                style="color: #067df7; text-decoration: none; text-decoration-line: underline"
+                                >{{t "PurchaseShippingReminder.Step1Link" " "}}</a
+                              >
+                            </p>
+                            <p
+                              data-id="react-email-text"
+                              style="font-size: 14px; line-height: 24px; margin: 16px 0; color: rgb(0, 0, 0)"
+                            >
+                              2. {{t "PurchaseShippingReminder.Step2" " "}}
+                            </p>
+                            <p
+                              data-id="react-email-text"
+                              style="
+                                font-size: 0.75rem;
+                                line-height: 1rem;
+                                margin: 16px 0;
+                                color: rgb(0, 0, 0);
+                                font-style: italic;
+                              "
+                            >
+                            {{t "PurchaseShippingReminder.Step2Tips" " "}}
+                            </p>
+                            <p
+                              data-id="react-email-text"
+                              style="font-size: 14px; line-height: 24px; margin: 16px 0; color: rgb(0, 0, 0)"
+                            >
+                              3.
+                              <a
+                                href="{{marketplace.url}}/{{#eq recipient-role "customer"}}order{{else}}sale{{/eq}}/{{url-encode id}}/details"
+                                data-id="react-email-link"
+                                target="_blank"
+                                style="color: #067df7; text-decoration: none; text-decoration-line: underline"
+                                >{{t "PurchaseShippingReminder.Step3" " "}}</a
+                              >
+                            </p>
+                            <p
+                              data-id="react-email-text"
+                              style="
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin: 16px 0;
+                                color: rgb(0, 0, 0);
+                                font-style: italic;
+                              "
+                            >
+                            {{t "PurchaseShippingReminder.Disclaimer" " "}}
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              align="center"
+              width="100%"
+              data-id="react-email-section"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              role="presentation"
+              style="padding-top: 0.5rem; padding-bottom: 0.5rem"
+            >
+              <tbody>
+                <tr>
+                  <td>
+                    <p
+                      data-id="react-email-text"
+                      style="
+                        font-size: 18px;
+                        line-height: 24px;
+                        margin: 16px 0;
+                        color: rgb(0, 0, 0);
+                        font-weight: 700;
+                      "
+                    >
+                      {{t "PurchaseShippingReminder.Content1Title" " "}}
+                    </p>
+                    <p
+                      data-id="react-email-text"
+                      style="font-size: 14px; line-height: 24px; margin: 16px 0; color: rgb(0, 0, 0)"
+                    >
+                      {{t "PurchaseShippingReminder.Content1Body" " "}}
+                    </p>
+                    <p
+                      data-id="react-email-text"
+                      style="font-size: 14px; line-height: 24px; margin: 16px 0; color: rgb(0, 0, 0)"
+                    >
+                      {{t "PurchaseShippingReminder.Content1Body2" " "}}
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              id="refind-footer"
+              align="center"
+              width="100%"
+              data-id="__react-email-container"
+              role="presentation"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              style="max-width: 37.5em; text-align: center"
+            >
+              <tbody>
+                <tr style="width: 100%">
+                  <td>
+                    <p data-id="react-email-text" style="font-size: 14px; line-height: 24px; margin: 0.25rem">
+                      {{t "Footer.Salutation" " "}}
+                    </p>
+                    <p
+                      data-id="react-email-text"
+                      style="font-size: 14px; line-height: 24px; margin: 0.25rem; font-weight: 700"
+                    >
+                      {{t "Footer.Team" " "}}
+                    </p>
+                    <hr
+                      data-id="react-email-hr"
+                      style="
+                        width: 100%;
+                        border: none;
+                        border-top: 1px solid #eaeaea;
+                        border-width: 1px;
+                        border-style: solid;
+                        border-color: rgb(234, 234, 234);
+                        margin-left: 0px;
+                        margin-right: 0px;
+                      "
+                    />
+                    <table
+                      align="center"
+                      width="100%"
+                      data-id="react-email-section"
+                      border="0"
+                      cellpadding="0"
+                      cellspacing="0"
+                      role="presentation"
+                      style="padding: 0.5rem; background-color: rgb(247, 249, 250); border-radius: 0.5rem"
+                    >
+                      <tbody>
+                        <tr>
+                          <td>
+                            <p
+                              data-id="react-email-text"
+                              style="
+                                font-size: 12px;
+                                line-height: 24px;
+                                margin: 0.125rem;
+                                padding-left: 0.25rem;
+                                padding-right: 0.25rem;
+                                font-weight: 700;
+                                text-align: center;
+                                border-radius: 0.25rem;
+                              "
+                            >
+                              {{t "Footer.Content1" " "}}
+                            </p>
+                            <p
+                              data-id="react-email-text"
+                              style="
+                                font-size: 10px;
+                                line-height: 24px;
+                                margin: 0.125rem;
+                                padding-left: 0.25rem;
+                                padding-right: 0.25rem;
+                                font-weight: 700;
+                                border-radius: 0.25rem;
+                              "
+                            >
+                              {{t "Footer.Content2" " "}}
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  {{/with}}
+</html>

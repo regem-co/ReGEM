@@ -1,0 +1,75 @@
+@import '../../styles/customMediaQueries.css';
+
+.pageTitle {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 0;
+  font-family: 'hernandezbros';
+  text-transform: uppercase;
+}
+
+.contactBox {
+  background-color: #f2f6fa;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.contactBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.icon {
+  color: var(--marketplaceColor);
+  & svg {
+    color: var(--marketplaceColor);
+  }
+}
+
+.staticPageWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #decbb0; */
+  padding: 5%;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+
+.image {
+  border-radius: 10px;
+  width: 50%;
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+
+  @media (max-width: 900px) {
+    width: 80%;
+  }
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.contactBoxLine {
+  color: var(--matterColor);
+}

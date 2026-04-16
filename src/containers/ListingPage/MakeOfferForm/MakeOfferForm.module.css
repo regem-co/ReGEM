@@ -1,0 +1,57 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+}
+
+.icon {
+  display: none;
+
+  @media (--viewportMedium) {
+    display: block;
+    margin-bottom: 36px;
+  }
+}
+
+.heading {
+  composes: marketplaceModalTitleStyles from global;
+  font-family: 'hernandezbros';
+  text-transform: uppercase;
+}
+
+.field {
+  margin: 25px 0 24px 0;
+
+  @media (--viewportMedium) {
+    margin: 22px 0 24px 0;
+  }
+}
+
+.error {
+  color: var(--failColor);
+  margin-top: 0;
+
+  @media (--viewportMedium) {
+    margin-top: 0;
+  }
+}
+
+
+.discountOptions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Adjust the space between each radio button and label here */
+  margin-bottom: 20px;
+  height: 90px;
+  
+}
+
+.discountOptions label {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjust the space between the icon and the text here */
+}
+
+.discountOptions input[type="radio"] {
+  accent-color: #007bff; /* Adjust the color of the radio button here */
+}

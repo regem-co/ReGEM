@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FreightShipWS-Axis2-1.4" basedir="." default="run">
+    <property file="build.properties"/>
+    <path id="axis2.classpath">
+        <fileset dir="${axis2.home}">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${classes}"/>
+    </path>
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${src_dir}"/>
+    </target>
+    <target name="WSDLToJava" depends="clean">
+        <java classname="${stubGeneratorclass}" fork="true">
+            <arg value="-o"/>
+            <arg value="."/>
+            <arg value="-uri"/>
+            <arg value="${wsdl.home}/${wsdl}"/>
+            <classpath>
+                <path refid="axis2.classpath"/>
+            </classpath>
+        </java>
+    </target>
+    <target name="compile" depends="WSDLToJava">
+        <mkdir dir="${classes}"/>
+        <javac srcdir="src" destdir="${classes}" deprecation="true" failonerror="true" debug="true">
+            <classpath>
+                <path refid="axis2.classpath"/>
+            </classpath>
+        </javac>
+    </target>
+    <target name="run" depends="compile">
+        <java classname="${mainclass}">
+            <classpath>
+                <path refid="axis2.classpath"/>
+            </classpath>
+        </java>
+    </target>
+</project>

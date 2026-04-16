@@ -1,0 +1,165 @@
+@import '../../styles/customMediaQueries.css';
+
+.pageTitle {
+  text-align: center;
+}
+
+.staticPageWrapper {
+  width: calc(100% - 48px);
+  max-width: 1056px;
+  margin: 24px auto;
+
+  @media (--viewportMedium) {
+    width: calc(100% - 72px);
+    margin: 72px auto;
+    margin-top: 20px;
+  }
+}
+
+.contentWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.rowSectionLeft{
+  display: flex;
+  width: 40%;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.rowSectionLeftShort{
+  display: flex;
+  width: 20%;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.rowSectionRightLong{
+  display: flex;
+  width: 75%;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+}
+
+.rowSectionRight{
+  display: flex;
+  width: 55%;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+}
+
+.rowSubsectionRight{
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.rowSubsectionRightCentered{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.rowSubsectionRightCenteredWide{
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.actionButton{
+  border-radius: 8px;
+  max-width: 100px;
+  min-height: 50px;
+}
+.getShippingLabelButton{
+  composes: button buttonFont buttonText buttonBorders buttonColors from global;
+  border-radius: 8px;
+  min-height: 50px;
+}
+
+
+.actionButtonColumnHead{
+}
+
+.infoIcon{
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.06);
+    filter: invert(65%) sepia(97%) saturate(1662%) hue-rotate(174deg) brightness(100%) contrast(102%);
+  }
+}
+
+.txState{
+  text-transform: capitalize;
+}
+
+.modalContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+
+.checkIcon{
+  color: var(--successColor);
+}
+
+.clearIcon{
+  color: var(--failColor);
+}
+
+.switchButtonsWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.switchButton{
+  margin: 0 25px 20px 25px;
+  border: 1px solid grey;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover{
+    background-color: var(--marketplaceColor);
+    color: white;
+  }
+}
+
+.switchButtonSelected{
+  margin: 0 25px 20px 25px;
+  border: 1px solid grey;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: var(--marketplaceColor);
+  color: white;
+
+}

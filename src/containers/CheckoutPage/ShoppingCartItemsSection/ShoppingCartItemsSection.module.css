@@ -1,0 +1,54 @@
+@import '../../../styles/customMediaQueries.css';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cardContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  border: 1px solid rgb(235, 235, 235);
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.cardImage {
+  width: 100px;
+  height: 100px;
+  margin-right: 1rem;
+  border-radius: 3px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardTitle {
+  margin-bottom: 0.5rem;
+}
+
+.cardDetails {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardQuantity,
+.cardPrice,
+.cardCategory,
+.cardCondition {
+  margin-right: 1rem;
+}
+
+.title {
+  color: var(--matterColor);
+  font-weight: var(--fontWeightSemiBold);
+  font-size: 18px;
+  line-height: 24px;
+}

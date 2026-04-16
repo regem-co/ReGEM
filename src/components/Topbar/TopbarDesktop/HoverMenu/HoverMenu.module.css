@@ -1,0 +1,96 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.linksWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #ebedee;
+  background-color: white;
+  padding: 0 10%;
+}
+
+.hoverLink {
+  font-family: 'hernandezbros';
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+  cursor: pointer;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 100%;
+  text-transform: uppercase;
+  font-weight: 100;
+
+  &:hover {
+    padding-bottom: 0;
+    border-bottom: 3px solid var(--marketplaceColor);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    margin: 0 5px;
+    white-space: nowrap;
+  }
+}
+
+.subcategoryMenu {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-top: 1px solid #ebedee;
+}
+
+.subcategoryMenuLeft {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  height: 100%;
+
+  & p {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+.subcategoryMenuRight {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  border-left: 1px solid #ebedee;
+
+  & span {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.subcategoryMenuLeftLabel {
+  font-family: 'hernandezbros';
+  text-transform: uppercase;
+}

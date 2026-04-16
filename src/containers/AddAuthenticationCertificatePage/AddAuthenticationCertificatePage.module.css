@@ -1,0 +1,20 @@
+.staticPageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  color: red;
+  line-height: 22px;
+}
+
+.success {
+  color: #2ecc71;
+  line-height: 22px;
+}
+
+.actionButton {
+  width: 250px;
+}

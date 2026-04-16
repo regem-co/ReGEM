@@ -1,0 +1,48 @@
+@import '../../../styles/customMediaQueries.css';
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+.listingCards {
+  padding: 0 0 72px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+
+.listingCard {
+  flex: 0 0 calc(50% - 12px);
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+
+@media (--viewportMedium) {
+  .listingCard {
+    flex: 0 0 calc(50% - 12px);
+  }
+}
+
+
+@media (--viewportLarge) {
+  .listingCard {
+    flex: 0 0 calc(33.333% - 16px);
+  }
+}
+
+@media (--viewportXLarge) {
+  .listingCard {
+    flex: 0 0 calc(33.333% - 16px);
+  }
+}
+
+
+.pagination {
+  margin-top: auto;
+  background-color: transparent;
+}

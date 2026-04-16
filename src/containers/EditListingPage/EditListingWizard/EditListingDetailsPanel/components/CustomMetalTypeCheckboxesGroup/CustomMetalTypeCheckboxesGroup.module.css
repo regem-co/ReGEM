@@ -1,0 +1,51 @@
+.label {
+  font-weight: var(--fontWeightSemiBold);
+  line-height: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+
+.checkboxItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: -13px;
+}
+
+.composedCheckboxItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: -13px;
+}
+
+.mainCheckbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.secondaryCheckboxItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.secondaryCheckboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.checkboxesWrapper {
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center; */
+}

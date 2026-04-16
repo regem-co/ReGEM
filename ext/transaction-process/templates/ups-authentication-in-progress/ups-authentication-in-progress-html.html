@@ -1,0 +1,16 @@
+
+<html>
+  <body>
+    {{#with transaction}}
+    <h1>Authetication is in progress for your package</h1>
+
+    <p>UPS: Authetication is in progress for your package</p>
+
+    <p><a href="{{marketplace.url}}/order/{{url-encode id}}/details">Order details</a></p>
+    {{/with}}
+
+    <hr />
+
+    <p>You have received this email notification because you are a member of {{marketplace.name}}. If you no longer wish to receive these emails, please contact {{marketplace.name}} team.</p>
+  </body>
+</html>

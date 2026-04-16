@@ -1,0 +1,116 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'hernandezbros';
+  text-transform: uppercase;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.cardWrapper {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &:hover {
+    text-decoration: none;
+    color: var(--matterColor);
+  }
+}
+
+.cardImage {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.cardSubtitle {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'hernandezbros';
+  &:hover {
+    text-decoration: none;
+    /* color: var(--matterColor); */
+  }
+}
+
+.mainTitle {
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 30px;
+  font-family: 'hernandezbros';
+  text-transform: uppercase;
+}
+
+.categoryButtonsWrapper {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoryButton {
+  margin: 0 10px;
+  border: 1.5px solid rgb(146, 119, 97);
+  background-color: rgb(255, 255, 255);
+  transition: all 0.15s ease-in-out;
+  border-radius: 30px;
+  text-align: center;
+  padding: 10px 40px;
+  color: rgb(146, 119, 97);
+
+  &:hover {
+    background-color: rgb(146, 119, 97);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.seeAllButton {
+  font-family: 'hernandezbros';
+  text-transform: uppercase;
+  border: 1px solid var(--marketplaceColor);
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 16px;
+}

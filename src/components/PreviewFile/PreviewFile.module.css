@@ -1,0 +1,16 @@
+.fileIcon {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 110px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  &:hover {
+    color: var(--marketplaceColor);
+  }
+}
+
+.icon {
+  font-size: 40px;
+}

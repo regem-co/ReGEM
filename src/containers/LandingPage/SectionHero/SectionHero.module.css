@@ -1,0 +1,211 @@
+@import '../../../styles/customMediaQueries.css';
+
+/* Animation for the hero elements */
+
+@keyframes animationTitle {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    top: -20px;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+  }
+}
+
+/* Shared animation rules */
+.animation {
+  animation-name: animationTitle;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-delay: 3s;
+
+  visibility: hidden;
+  opacity: 1;
+  position: relative;
+}
+
+.root {
+  composes: defaultBackgroundImage from global;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  /*
+  @media (--viewportLarge) {
+    border-radius: 40px;
+    border: solid 36px var(--matterColorBright);
+  } */
+}
+
+.heroMainTitle {
+  composes: marketplaceHeroTitleFontStyles from global;
+  color: var(--matterColorLight);
+  composes: animation;
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: 600;
+  @media (--viewportMedium) {
+    max-width: var(--SectionHero_desktopTitleMaxWidth);
+  }
+}
+.heroMainTitleFEDelay {
+  animation-delay: 0s;
+}
+
+.heroSubTitle {
+  composes: h4 from global;
+
+  color: var(--matterColorLight);
+  margin: 0 0 32px 0;
+  composes: animation;
+
+  @media (--viewportMedium) {
+    max-width: var(--SectionHero_desktopTitleMaxWidth);
+    margin: 0 0 47px 0;
+  }
+}
+.heroSubTitleFEDelay {
+  animation-delay: 0.15s;
+}
+
+.heroButton {
+  composes: button buttonFont buttonText buttonBorders buttonColors from global;
+  composes: animation;
+
+  @media (--viewportMedium) {
+    display: block;
+    width: 260px;
+  }
+}
+.heroButtonFEDelay {
+  animation-delay: 0.3s;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tab {
+  font-family: 'hernandezbros';
+
+  margin-right: 20px;
+  color: var(--matterColor);
+
+  font-size: 30px;
+  font-weight: 200;
+  cursor: pointer;
+  padding-bottom: 8px;
+
+  &:hover {
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--marketplaceColor);
+  }
+}
+
+.selectedTab {
+  font-family: 'hernandezbros';
+  margin-right: 20px;
+  color: var(--matterColor);
+
+  font-size: 30px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--marketplaceColor);
+}
+
+.heroText {
+  color: var(--matterColor);
+
+  font-size: 24px;
+  font-weight: var(--fontWeightRegular);
+  line-height: 30px;
+}
+
+.searchLink {
+  color: var(--matterColor);
+
+  font-size: 14px;
+  text-decoration: underline;
+  margin-top: 15px;
+}
+
+.newListingLink {
+  font-family: 'hernandezbros';
+
+  composes: button buttonFont buttonText buttonBorders buttonColors from global;
+  max-width: 150px;
+  min-height: 40px;
+  max-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 80vh;
+  width: calc(50% - 50px);
+  padding: 0 5%;
+  padding-top: 7%;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 45.24%);
+  color: var(--matterColor);
+  width: 50%;
+
+  @media (max-width: 1400px) {
+    width: 60%;
+  }
+  @media (max-width: 950px) {
+    width: 100%;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 85.24%);
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 35%;
+  }
+}
+
+.carouselWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  height: 80vh;
+}
+
+.carouselSlide {
+  height: 80vh;
+}
+
+.slideImage {
+  height: 80vh;
+
+  object-fit: cover;
+}

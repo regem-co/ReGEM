@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingCard matches snapshot 1`] = `
+<NamedLink
+  className="root"
+  name="ListingPage"
+  params={
+    Object {
+      "id": "listing1",
+      "slug": "listing1-title",
+    }
+  }
+>
+  <AspectRatioWrapper
+    className="aspectRatioWrapper"
+    height={400}
+    rootClassName={null}
+    width={400}
+  >
+    <lazyLoadWithDimensions(ListingImage)
+      alt="listing1 title"
+      image={null}
+      rootClassName="rootForImage"
+      sizes={null}
+      variants={Array []}
+    />
+  </AspectRatioWrapper>
+  <div
+    className="info"
+  >
+    <div
+      className="price"
+    >
+      <div
+        className="priceValue"
+        title={55}
+      >
+        55
+      </div>
+    </div>
+    <div
+      className="mainInfo"
+    >
+      <div
+        className="title"
+      >
+        listing1
+         
+        title
+      </div>
+      <div
+        className="authorInfo"
+      >
+        <MemoizedFormattedMessage
+          id="ListingCard.author"
+          values={
+            Object {
+              "authorName": "user1 display name",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</NamedLink>
+`;
