@@ -108,11 +108,13 @@
     "enzyme-to-json": "^3.6.2",
     "inquirer": "^8.2.4",
     "nodemon": "^2.0.16",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.2"
   },
   "resolutions": {
     "react-dates/lodash": "^4.17.21",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "object-assign": "4.1.1"
   },
   "nodemonConfig": {
     "execMap": {
@@ -121,7 +123,7 @@
   },
   "scripts": {
     "audit": "yarn audit --json | node scripts/audit.js",
-    "clean": "rm -rf build/*",
+    "clean": "rimraf build",
     "config": "node scripts/config.js",
     "config-check": "node scripts/config.js --check",
     "dev-frontend": "sharetribe-scripts start",
@@ -130,10 +132,10 @@
     "build": "yarn build-web&&yarn build-server",
     "build-web": "sharetribe-scripts build",
     "build-server": "sharetribe-scripts build-server",
-    "format": "prettier --write '**/*.{js,css}'",
-    "format-ci": "prettier --list-different '**/*.{js,css}'",
-    "format-docs": "prettier --write '**/*.md'",
-    "test": "NODE_ICU_DATA=node_modules/full-icu sharetribe-scripts test",
+    "format": "prettier --write \"**/*.{js,css}\"",
+    "format-ci": "prettier --list-different \"**/*.{js,css}\"",
+    "format-docs": "prettier --write \"**/*.md\"",
+    "test": "cross-env NODE_ICU_DATA=node_modules/full-icu sharetribe-scripts test",
     "test-ci": "yarn run test-server --runInBand && sharetribe-scripts test --runInBand",
     "eject": "sharetribe-scripts eject",
     "start": "node --icu-data-dir=node_modules/full-icu server/index.js",
@@ -157,9 +159,6 @@
   "engines": {
     "node": "<17.0.0",
     "yarn": ">=1.22.0"
-  },
-  "resolutions": {
-    "object-assign": "4.1.1"
   },
   "prettier": {
     "singleQuote": true,
