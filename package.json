@@ -85,6 +85,7 @@
     "rehype-sanitize": "^4.0.0",
     "remark-parse": "^9.0.0",
     "remark-rehype": "^8.1.0",
+    "request": "^2.88.2",
     "rsuite": "^5.76.2",
     "seedrandom": "^3.0.5",
     "sharetribe-flex-integration-sdk": "^1.8.0",
