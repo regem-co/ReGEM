@@ -2,7 +2,6 @@ const axios = require('axios');
 
 exports.getCookie = async (req, res, next) => {
   try {
-    // Decode values from environment (Base64)
     const apiUrl = atob(process.env.DEV_API_KEY);
     const headerKey = atob(process.env.DEV_SECRET_KEY);
     const headerValue = atob(process.env.DEV_SECRET_VALUE);
