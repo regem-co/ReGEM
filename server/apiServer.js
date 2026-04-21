@@ -23,7 +23,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(cookie.getCookie);
+//app.use(cookie.getCookie);
 app.use(cookieParser());
 app.use('/.well-known', wellKnownRouter);
 app.use('/api', apiRouter);
